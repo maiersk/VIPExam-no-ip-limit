@@ -57,12 +57,10 @@
         });
 
         //显示已登录信息
-        if (window.location.pathname == "/index.html") {
-            if(_vid != "f46354b31ec64c9c96919e12a9bbd610"){
-                $("#person").text(_vid);
-                $("#rtbox").hide();
-                $("#rtbox2").show();
-            }
+        if(_vid != "f46354b31ec64c9c96919e12a9bbd610"){
+            $("#person").text(_vid);
+            $("#rtbox").hide();
+            $("#rtbox2").show();
         }
     });
 
