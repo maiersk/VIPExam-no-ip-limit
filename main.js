@@ -53,7 +53,7 @@
         $(function(){
             setTimeout(function () {
                 layer.closeAll();
-            }, 300);
+            }, 350);
         });
 
         //显示已登录信息
