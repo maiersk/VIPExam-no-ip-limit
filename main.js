@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         vipexam no ip limit
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/maiersk
 // @version      0.1
 // @description  vipexam no ip limit
 // @author       ABTTEX
