@@ -5,6 +5,7 @@
 // @description  中科vipexam no ip limit
 // @author       ABTTEX
 // @match        http://lib.vipexam.org/*
+// @match        http://vipexam.cn/*
 // @require      https://code.jquery.com/jquery-3.4.1.min.js
 // ==/UserScript==
 
