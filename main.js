@@ -12,6 +12,7 @@
 // @match        http://vipexam.cn/*
 // @match        http://www.umajor.org/*
 // @require      https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js
+// @license      MIT
 // ==/UserScript==
 
 (function () {
