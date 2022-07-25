@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         vipexam no ip limit
 // @namespace    https://github.com/maiersk
-// @version      0.2.0
+// @version      0.2.1
 // @description  中科vipexam no ip limit
 // @author       ABTTEX
 // @match        http://www.vipexam.org/*
