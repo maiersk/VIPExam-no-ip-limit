@@ -37,6 +37,9 @@
         var _vid = vipexam_storage.user.account;
         var _umid = umajor_storage.user.account;
 
+        //vipexam账号角色id，3是教师账号id，4是普通账号id
+        var _role = 2;
+
         function RequestJson(url, params, callback) {
             var _idx = layer.load(1);
             $.ajax({ type: "post", data: params, url: url, dataType: "json", global: false, success: function (data) { callback && callback(data); }, complete: function () { layer.close(_idx); }, error: function (XMLHttpRequest, textStatus, errorThrown) { layer.close(_idx); } });
@@ -48,6 +51,7 @@
 
             RequestJson("user/login.action", { account: $("#username").val(), password: $("#password").val() }, function (data) {
                 if (data.code == "1") {
+                    data.user.role = _role
                     $.cookie("vipexam", JSON.stringify(data), { path: '/', expires: 7 });
                     _vipexam = $.cookie("vipexam");
                     document.location = "index.html";
