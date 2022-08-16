@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         vipexam no ip limit
 // @namespace    https://github.com/maiersk
-// @version      0.2.1
-// @description  中科vipexam no ip limit
+// @version      0.2.2
+// @description  中科vipexam, umajor, joblib no ip limit
 // @author       ABTTEX
 // @match        http://www.vipexam.org/*
 // @match        http://www.vipexam.cn/*
@@ -11,6 +11,7 @@
 // @match        http://vipexam.org/*
 // @match        http://vipexam.cn/*
 // @match        http://www.umajor.org/*
+// @match        http://www.joblib.cn/*
 // @require      https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js
 // @license      MIT
 // ==/UserScript==
@@ -78,6 +79,23 @@
             return false;
         });
 
+        // joblib登录
+        form.on('submit(joblib_crashlogin)', function (data) {
+            _umid = $("#username").val();
+
+            RequestJson("user/login.action", { account: $("#username").val(), password: $("#password").val(), Version: "1" }, function (data) {
+                if (data.code == "1") {
+                    $.cookie("joblib", JSON.stringify(data), {  path: '/', expires: 7});
+                    _vipexam = $.cookie("joblib");
+                    window.userName=data.user.account;
+                    document.location = "index.html";
+                } else {
+                    layer.msg(data.msg, { icon: 2 });
+                }
+            });
+            return false;
+        });
+
         //关闭ip问题弹窗
         $(function () {
             setTimeout(function () {
@@ -101,6 +119,11 @@
                     layer.tips("<a href='personal_center.html' style='color:#fff;'>个人中心</a>", this, { tips: [3, '#666'], time: 3000, area: ['80px', '40px'] });
                 }, function () { });
             }
+
+            if (window.location.host.indexOf('joblib') !== -1) {
+                $(".jl_logo").prepend("<img src='"+data.collegeLogo+"?v="+_version+"' style='float:left;margin:10px 10px 10px 0;max-width:250px;' alt/>");
+                $(".jl_search").removeClass("logo_hide").addClass("logo_show");
+            }
         }
     });
 
@@ -115,5 +138,11 @@
             var umajor_crashlogin = '<div id="umajor_crashlogin" lay-submit lay-filter="umajor_crashlogin" class="layui-btn" >crashlogin</div>';
             $(".layui-form").append(umajor_crashlogin);
         }
+        
+        if (window.location.host.indexOf('joblib') !== -1 && window.location.pathname.indexOf('login') !== -1) {
+            var joblib_crashlogin = '<div id="joblib_crashlogin" lay-submit lay-filter="joblib_crashlogin" class="layui-btn" >crashlogin</div>';
+            $(".layui-form").append(joblib_crashlogin);
+        }
+
     })
 })();
