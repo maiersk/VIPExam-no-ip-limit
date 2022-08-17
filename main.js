@@ -5,13 +5,21 @@
 // @description  中科vipexam, umajor, joblib no ip limit
 // @author       ABTTEX
 // @match        http://www.vipexam.org/*
+// @match        https://www.vipexam.org/*
 // @match        http://www.vipexam.cn/*
+// @match        https://www.vipexam.cn/*
 // @match        http://lib.vipexam.org/*
+// @match        https://lib.vipexam.org/*
 // @match        http://lib.vipexam.cn/*
+// @match        https://lib.vipexam.cn/*
 // @match        http://vipexam.org/*
+// @match        https://vipexam.org/*
 // @match        http://vipexam.cn/*
+// @match        https://vipexam.cn/*
 // @match        http://www.umajor.org/*
+// @match        https://www.umajor.org/*
 // @match        http://www.joblib.cn/*
+// @match        https://www.joblib.cn/*
 // @require      https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js
 // @license      MIT
 // ==/UserScript==
